@@ -1,5 +1,5 @@
 use std::io::Read;
-use serde::Serialize;
+use serde::{Serialize, Serializer};
 
 #[derive(Debug, Serialize)]
 struct Input {
@@ -10,9 +10,34 @@ struct Input {
 }
 
 #[derive(Debug, Serialize)]
+struct Output {
+    #[serde(serialize_with = "as_btc")]
+    amount: Amount,
+    script_pubkey: String
+}
+
+fn as_btc<S: Serializer, T: BitcoinValue>(t: &T, s:S) -> Result<S::Ok, S::Error> {
+    let btc = t.to_btc();
+    s.serialize_f64(btc)
+}
+#[derive(Debug)]
+struct Amount(u64);
+
+trait BitcoinValue {
+    fn to_btc(&self) -> f64;
+}
+
+impl BitcoinValue for Amount {
+    fn to_btc(&self) -> f64 {
+        self.0 as f64 / 100_000_000.0
+    }
+}
+
+#[derive(Debug, Serialize)]
 struct Transaction {
     version: u32,
-    inputs: Vec<Input>
+    inputs: Vec<Input>,
+    outputs: Vec<Output>
 }
 
 fn read_compact_size(transaction_bytes: &mut &[u8]) -> u64 {
@@ -47,6 +72,13 @@ fn read_u32(bytes_slice: &mut &[u8]) -> u32 {
     u32::from_le_bytes(buffer)
 }   
 
+#[allow(unused_variables)]
+fn read_amount(bytes_slice: &mut &[u8]) -> Amount {
+    let mut buffer = [0; 8];
+    bytes_slice.read(&mut buffer).unwrap();    
+    Amount(u64::from_le_bytes(buffer))
+}   
+
 fn read_txid(transaction_bytes: &mut &[u8]) -> String {
     let mut buffer = [0; 32];
     transaction_bytes.read(&mut buffer).unwrap();
@@ -69,7 +101,8 @@ fn main() {
     let version = read_u32(&mut bytes_slice);
     let input_count = read_compact_size(&mut bytes_slice);
     let mut inputs = vec![];
-
+    let output_count = read_compact_size(&mut bytes_slice);
+    let mut outputs = vec![];
 
     for _ in 0..input_count{
         let txid = read_txid(&mut bytes_slice);
@@ -85,9 +118,21 @@ fn main() {
         });
     }
 
+
+    for _ in 0..output_count{
+        let amount = read_amount(&mut bytes_slice);
+        let script_pubkey = read_script(&mut bytes_slice);
+
+        outputs.push(Output {
+            amount,
+            script_pubkey
+        });
+    }
+
     let transaction = Transaction {
         version,
-        inputs
+        inputs,
+        outputs
     };
 
 
