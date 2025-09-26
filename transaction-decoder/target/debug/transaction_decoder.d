@@ -1,0 +1,1 @@
+/home/joao/rustprojs/BTC-decoder-transaction/transaction-decoder/target/debug/transaction_decoder: /home/joao/rustprojs/BTC-decoder-transaction/transaction-decoder/src/lib.rs /home/joao/rustprojs/BTC-decoder-transaction/transaction-decoder/src/main.rs /home/joao/rustprojs/BTC-decoder-transaction/transaction-decoder/src/transaction.rs

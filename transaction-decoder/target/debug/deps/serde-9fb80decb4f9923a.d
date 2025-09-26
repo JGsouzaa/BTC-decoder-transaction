@@ -1,0 +1,12 @@
+/home/joao/rustprojs/BTC-decoder-transaction/transaction-decoder/target/debug/deps/serde-9fb80decb4f9923a.d: /home/joao/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.226/src/lib.rs /home/joao/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.226/src/integer128.rs /home/joao/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.226/src/private/mod.rs /home/joao/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.226/src/private/de.rs /home/joao/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.226/src/private/ser.rs /home/joao/rustprojs/BTC-decoder-transaction/transaction-decoder/target/debug/build/serde-c8e40624e3b8c378/out/private.rs
+
+/home/joao/rustprojs/BTC-decoder-transaction/transaction-decoder/target/debug/deps/libserde-9fb80decb4f9923a.rmeta: /home/joao/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.226/src/lib.rs /home/joao/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.226/src/integer128.rs /home/joao/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.226/src/private/mod.rs /home/joao/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.226/src/private/de.rs /home/joao/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.226/src/private/ser.rs /home/joao/rustprojs/BTC-decoder-transaction/transaction-decoder/target/debug/build/serde-c8e40624e3b8c378/out/private.rs
+
+/home/joao/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.226/src/lib.rs:
+/home/joao/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.226/src/integer128.rs:
+/home/joao/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.226/src/private/mod.rs:
+/home/joao/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.226/src/private/de.rs:
+/home/joao/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.226/src/private/ser.rs:
+/home/joao/rustprojs/BTC-decoder-transaction/transaction-decoder/target/debug/build/serde-c8e40624e3b8c378/out/private.rs:
+
+# env-dep:OUT_DIR=/home/joao/rustprojs/BTC-decoder-transaction/transaction-decoder/target/debug/build/serde-c8e40624e3b8c378/out
